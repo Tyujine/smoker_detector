@@ -4,11 +4,12 @@ from ultralytics import YOLO
 import mss
 
 # ✅ Load your trained model (replace with your best model path)
-model = YOLO(r"runs\train\smoke_yolov8\weights\best.pt")
+# model = YOLO(r"runs\train\smoke_yolov8\weights\best.pt\d")
+model = YOLO(r"runs\train\smoker_detector_Better_1\weights\best.pt")
 
 # Define screen capture region
 # You can change 'mon' if you have multiple monitors
-monitor = {"top": 300, "left": 300, "width": 1280, "height": 720}
+monitor = {"top": 300, "left": 300, "width": 1920, "height": 1080}
 
 # Initialize mss for screen capture
 sct = mss.mss()
