@@ -1,32 +1,27 @@
 from ultralytics import YOLO
 import os
 
-DATASET_PATH = 'dataset/Smoker Detector-New/'
+DATASET_PATH = 'dataset_augmented/'
 DATA_YAML = DATASET_PATH + 'data.yaml'
-MODEL_NAME = 'yolo11m.pt'
+MODEL_NAME = 'yolo11l.pt'
 SAVE_DIR = 'runs/train/'
 
-pretrained_weights = SAVE_DIR + 'smokerdetector_stage_1/weights/best.pt'
+pretrained_weights = SAVE_DIR + 'smokerdetector_stage_A/weights/best.pt'
 
 def train():
     model = YOLO(MODEL_NAME)
-    model.info()
+    model.load(pretrained_weights)
     model.train(data=DATA_YAML,
                 epochs=100,
                 imgsz=832,
                 batch=8,
                 device=0,
-                pretrained=pretrained_weights,
-                name='smokerdetector_stage_2',
+                name='smokerdetector_stage_B',
                 project=SAVE_DIR,
                 lr0=0.001,
                 lrf=0.0001,
-                mosaic=1.0)
-    
-    print("\n✅ Tuning complete!")
-    print(f"📁 Results saved to: {os.path.join(SAVE_DIR, 'smoker_detector')}")
-    print("📊 Use TensorBoard or check 'results.png' for loss & accuracy graphs.")
-    print("🔥 Best model: best.pt (use this for detection)\n")
+                mosaic=0.0,
+                )
 
 if __name__ == "__main__":
     train()

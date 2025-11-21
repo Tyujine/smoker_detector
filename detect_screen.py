@@ -5,7 +5,7 @@ import mss
 
 # ✅ Load your trained model (replace with your best model path)
 # model = YOLO(r"runs\train\smoke_yolov8\weights\best.pt\d")
-model = YOLO(r"runs\train\smoker_detector_Better_1\weights\best.pt")
+model = YOLO('finished_models/smokerdetector_stage_B/weights/best.pt')
 
 # Define screen capture region
 # You can change 'mon' if you have multiple monitors

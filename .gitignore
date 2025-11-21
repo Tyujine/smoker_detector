@@ -5,3 +5,6 @@ __pycache__/
 runs/
 dataset/
 dataset_augmented/
+autotrain.ps1
+continue.py
+yolo11*
